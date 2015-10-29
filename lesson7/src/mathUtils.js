@@ -1,4 +1,6 @@
- 'use strict';
+ 'use strict'
+
+ var Promise = require('bluebird');
 
 var mathUtils = {
     average: function(array) {
