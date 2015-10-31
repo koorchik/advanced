@@ -32,6 +32,35 @@ var mathUtils = {
                 }
             }, 10);
         });
+    },
+
+    median: function(array) {
+        if ( !Array.isArray(array) ) {
+            throw new Error('ARGUMENT_IS_NOT_ARRAY');
+        }
+
+        array.sort( function(a,b) {return a - b;} );
+
+        var half = Math.floor(array.length/2);
+
+        if(array.length % 2) {
+            return array[half];
+        } else {
+            return (array[half-1] + array[half]) / 2.0;
+        }
+    },
+
+    medianAsync: function(array) {
+        return new Promise(function(resolve, reject) {
+            setTimeout(function() {
+                try {
+                    var result = mathUtils.median(array);
+                    resolve(result);
+                } catch(error) {
+                    reject(error);
+                }
+            }, 10);
+        });
     }
 };
 

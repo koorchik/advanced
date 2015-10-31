@@ -59,3 +59,4 @@ test('Positive: mathUtils.averageAsync([3,4,5])', function(done) {
 // mathUtils.average(['23', 'dsd'])
 // mathUtils.average()
 // mathUtils.average("somestring")
+
