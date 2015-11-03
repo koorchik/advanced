@@ -1,10 +1,10 @@
-var Promise = require('bluebird');
-var _       = require('lodash');
+var Promise   = require('bluebird');
+var cloneDeep = require('./cloneDeep');
 
 var FIXTURE = require('../data/sample.json');
 
 module.exports = {
     list: function() {
-        return Promise.resolve( _.cloneDeep(FIXTURE) );
+        return Promise.resolve( cloneDeep(FIXTURE) );
     }
 };
