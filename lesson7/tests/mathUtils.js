@@ -34,13 +34,37 @@ test('Negative: mathUtils.average(3,4,5)', function() {
     }, 'ARGUMENT_IS_NOT_ARRAY');
 });
 
+test('Negative: mathUtils.average([])', function() {
+    var result = mathUtils.average([]);
+    assert.ok( isNaN(result) );
+});
+
+test('Negative: mathUtils.average(["23", "dsd"])', function() {
+    assert.throw(function() {
+        mathUtils.average(['23', 'dsd'])
+    }, 'ONLY_NUMERIC_VALUES_ARE_SUPPORTED');
+});
+
+test('Negative: mathUtils.average()', function() {
+    assert.throw(function() {
+        mathUtils.average();
+    }, 'ARGUMENT_IS_NOT_ARRAY');
+});
+
+
 
 suite('mathUtils averageAsync');
 
-test('Positive: mathUtils.averageAsync([3,4,5])', function(done) {
-    mathUtils.averageAsync([3,4,5]).then(function(avgValue) {
+test('Positive: mathUtils.averageAsync([3,4,5])', function() {
+    return mathUtils.averageAsync([3,4,5]).then(function(avgValue) {
         assert.almostEqual(avgValue, 4);
-        done();
+    });
+});
+
+test('Negative: mathUtils.averageAsync(3,4,5)', function() {
+    return mathUtils.averageAsync(3,4,5).catch(function(error) {
+        assert.ok(error);
+        assert.equal(error.message, 'ARGUMENT_IS_NOT_ARRAY');
     });
 });
 
@@ -53,10 +77,10 @@ test('Positive: mathUtils.averageAsync([3,4,5])', function(done) {
 
 // Negative (Done)
 // mathUtils.average(3,4,5)
-
-// Negative (TODO)
 // mathUtils.average([])
 // mathUtils.average(['23', 'dsd'])
 // mathUtils.average()
+
+// Negative (TODO)
 // mathUtils.average("somestring")
 
