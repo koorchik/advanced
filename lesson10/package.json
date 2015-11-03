@@ -1,0 +1,40 @@
+{
+  "name": "lesson10",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint src",
+    "build": "webpack -p",
+    "devserver": "webpack-dev-server --debug --devtool eval-source-map --output-pathinfo --watch --colors --inline --content-base public --port 8090",
+    "test": "npm run lint"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.0.5",
+    "bootstrap": "^3.3.5",
+    "handlebars": "^4.0.4",
+    "jquery": "^2.1.4",
+    "lodash": "^3.10.1",
+    "moment": "^2.10.6"
+  },
+  "devDependencies": {
+    "autoprefixer-loader": "*",
+    "babel-loader": "*",
+    "css-loader": "*",
+    "eslint": "^1.1.0",
+    "eslint-loader": "^1.0.0",
+    "eslint-plugin-react": "^3.2.1",
+    "file-loader": "^0.8.4",
+    "handlebars-loader": "^1.1.4",
+    "json-loader": "*",
+    "less-loader": "*",
+    "raw-loader": "^0.5.1",
+    "react-hot-loader": "*",
+    "style-loader": "*",
+    "url-loader": "*",
+    "webpack": "*",
+    "webpack-dev-server": "*"
+  }
+}
